@@ -5,6 +5,8 @@ import dotenv from 'dotenv'
 import multer from 'multer'
 import { connectDB } from './config/db.js'
 import foodRouter from './routes/foodRoute.js'
+import userRouter from './routes/UserRoute.js'
+import 'dotenv/config'
 
 
 // app config
@@ -21,6 +23,7 @@ connectDB();
 // api endpoints
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads'));
+app.use('/api/user', userRouter);
 
 app.get('/', (req, res) => {
     res.send('Server Working')
